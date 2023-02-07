@@ -32,7 +32,7 @@
           >
             <v-card-title class="d-flex justify-space-between align-center">
               {{ todo }}
-              <v-btn @click="removeTodo" icon size="small" flat>
+              <v-btn @click="removeTodo(i)" icon size="small" flat>
                 <v-icon color="red">mdi-trash-can-outline</v-icon>
               </v-btn>
             </v-card-title>
@@ -50,6 +50,7 @@ const todos = ref([]);
 const newTodo = ref("");
 
 const addTodo = () => {
+  if(newTodo.value == '') return //check if input is empty
   todos.value.push(newTodo.value);
   newTodo.value = "";
 };
